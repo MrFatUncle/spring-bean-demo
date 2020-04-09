@@ -7,6 +7,7 @@
  */
 package cn.lcm.springbeandemo.scope;
 
+import cn.lcm.springbeandemo.beanlifecycle.LifeCycleBean;
 import cn.lcm.springbeandemo.scope.bean.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,8 @@ public class ScopeController {
         ScopeRequestBean scopeRequestBean = SpringUtil.getBean(ScopeRequestBean.class);
         ScopePrototypeBean scopePrototypeBean = SpringUtil.getBean(ScopePrototypeBean.class);
         ScopeApplicationBean scopeApplicationBean = SpringUtil.getBean(ScopeApplicationBean.class);
+
+        LifeCycleBean lifeCycleBean = SpringUtil.getBean(LifeCycleBean.class);
 
         return "响应了：" + getClass().getName();
     }
