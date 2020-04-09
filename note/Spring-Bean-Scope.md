@@ -1,0 +1,15 @@
+###这一节主要介绍Spring Bean的作用域
+关于Spring Bean的作用域，就在咱们的Spring框架的注解@Scope里进行设置，不同的作用域会让Spring bean拥有不同的生命周期，下面咱们就来做一下实验进行深入的理解
+####参考类：cn.lcm.springbeandemo.scope.ScopeController
+因为Request作用域的Bean必须伴随一次请求才能生成新的对象，而ScopeController默认Singleton的作用域，则会报错，为了避免此问题，ScopeController的作用域设置为Request
+####总结
+1、作用域为单例singleton
+Spring Bean会在项目启动时就生成Bean放入到SpringIOC容器中进行管理
+2、作用域为多例protoType
+Spring Bean会在对象需要被调用的时候才会生成Bean对象，而逻辑执行完了之后Bean对象会销毁
+3、作用域为请求request
+会在Spring WebApplicationContext下，请求到来时才生成Bean对象
+4、作用域为session
+开启session时生成Bean对象，关闭session时销毁
+5、作用域为application
+会在Spring第一次调用对象时会生成Bean对象，随时服务停止时才会销毁
