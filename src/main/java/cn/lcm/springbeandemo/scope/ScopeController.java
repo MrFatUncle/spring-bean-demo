@@ -53,6 +53,12 @@ public class ScopeController {
         ScopePrototypeBean scopePrototypeBean = SpringUtil.getBean(ScopePrototypeBean.class);
         ScopeApplicationBean scopeApplicationBean = SpringUtil.getBean(ScopeApplicationBean.class);
 
+        return "响应了：" + getClass().getName();
+    }
+
+    @RequestMapping("lifeCycle")
+    public String lifeCycle(HttpServletRequest request) {
+
         LifeCycleBean lifeCycleBean = SpringUtil.getBean(LifeCycleBean.class);
 
         return "响应了：" + getClass().getName();
