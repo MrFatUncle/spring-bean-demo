@@ -22,7 +22,8 @@ import java.beans.PropertyDescriptor;
 @Component
 @Slf4j
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class LifeCycleBean implements BeanFactoryPostProcessor,
+public class LifeCycleBean implements
+        BeanFactoryPostProcessor,
         InstantiationAwareBeanPostProcessor,
         BeanNameAware,
         BeanFactoryAware,
