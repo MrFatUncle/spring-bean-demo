@@ -11,14 +11,14 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public interface IUserService extends InvocationHandler {
+public interface IUserService {
     void save();
 }
 
 /**
- * 这是被代理的类，实现JDK提供的接口
+ * 这是被代理的类，实现JDK提供的接口 InvocationHandler
  */
-class UserServiceImpl implements IUserService {
+class UserServiceImpl implements IUserService,InvocationHandler {
     @Override
     public void save() {
         System.out.println("执行逻辑");
@@ -36,6 +36,7 @@ class UserServiceImpl implements IUserService {
 
 class Test {
     public static void main(String[] args) {
+        //通过反射的方式构建代理对象
         IUserService proxyInstance = (IUserService)Proxy.newProxyInstance(UserServiceImpl.class.getClassLoader(),
                 UserServiceImpl.class.getInterfaces(),
                 new UserServiceImpl());
